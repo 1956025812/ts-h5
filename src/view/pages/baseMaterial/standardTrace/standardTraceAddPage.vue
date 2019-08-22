@@ -248,7 +248,7 @@ export default {
       this.standardTraceAddForm.nodeCode = "";
       this.standardTraceAddForm.traceNodeListOptions = [];
 
-      // 更新轨迹简码11111
+      // 更新轨迹简码
       this.$options.methods.updateCycleNodeTraceCode.bind(this)();
     },
 
