@@ -20,10 +20,11 @@
       <br />
       <div>
         <Upload
+          ref="uploadRef"
           :format="['xls','xlsx']"
           :before-upload="handleUpload"
           :on-format-error="handleFormatError"
-          action="/asdfasdfasdfasdfasdfasdfasd"
+          action="http://localhost:8001/standardtrace/import"
         >
           <Button icon="ios-arrow-dropdown">选择文件</Button>
         </Upload>
@@ -62,6 +63,7 @@ export default {
      */
     handleUpload(file) {
       this.excelFile = file;
+      return false;
     },
 
     /**
@@ -80,11 +82,7 @@ export default {
      */
     importStandardTrace() {
       alert("导入标准轨迹TODO");
-      setTimeout(() => {
-        this.file = null;
-        this.loadingStatus = false;
-        this.$Message.success("Success");
-      }, 1500);
+      this.$refs.uploadRef.post(this.excelFile);
     }
   },
 
