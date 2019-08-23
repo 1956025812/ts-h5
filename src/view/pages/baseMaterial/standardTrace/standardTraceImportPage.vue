@@ -21,9 +21,8 @@
       <div>
         <Upload
           ref="uploadRef"
-          :format="['xls','xlsx']"
+          :format="excelFileTypes"
           :before-upload="handleUpload"
-          :on-format-error="handleFormatError"
           :on-success="handleUploadSuccess"
           :on-error="handleUploadError"
           action="http://localhost:8001/standardtrace/import"
@@ -47,7 +46,8 @@ export default {
   data() {
     return {
       standardTraceImportModal: false,
-      excelFile: null
+      excelFile: null,
+      excelFileTypes: ["xls", "xlsx"]
     };
   },
 
@@ -61,23 +61,23 @@ export default {
     },
 
     /**
-     * 上传文件之前的钩子，参数为上传的文件，若返回 false 或者 Promise 则停止上传
-     * TODO 1  这样子格式校验不起作用了
+     * 上传文件之前的钩子： 检验文件格式
      */
     handleUpload(file) {
-      this.excelFile = file;
-      return false;
-    },
+      // 校验文件格式 注意：此处没有使用on-format-error方法，因为会和 return false 冲突
+      let fileType = file.name.split(".");
+      fileType = fileType[fileType.length - 1].toLowerCase();
+      if (this.excelFileTypes.indexOf(fileType) < 0) {
+        this.$Notice.warning({
+          title: "必须是EXCEL文件",
+          desc: "文件后缀名必须是xls或者xlsx"
+        });
+      } else {
+        this.excelFile = file;
+      }
 
-    /**
-     * 文件类型错误提示
-     */
-    handleFormatError(file) {
-      this.excelFile = null;
-      this.$Notice.warning({
-        title: "必须是EXCEL文件",
-        desc: "文件后缀名必须是xls或者xlsx"
-      });
+      // 若返回 false 或者 Promise 则停止上传
+      return false;
     },
 
     /**
