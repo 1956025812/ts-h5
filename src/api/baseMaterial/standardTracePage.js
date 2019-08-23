@@ -79,3 +79,19 @@ export const delStandardTraceAPI = (params) => {
 
 
 
+/**
+ * @description 导入标准轨迹
+ */
+export const importStandardTraceAPI = (params) => {
+    return axios.request({
+        url: '/standardtrace/import',
+        method: 'post',
+        data: JSON.stringify(params),
+        headers: { 'Content-Type': 'application/json' }
+    });
+}
+
+
+
+
+

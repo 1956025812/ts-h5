@@ -24,6 +24,8 @@
           :format="['xls','xlsx']"
           :before-upload="handleUpload"
           :on-format-error="handleFormatError"
+          :on-success="handleUploadSuccess"
+          :on-error="handleUploadError"
           action="http://localhost:8001/standardtrace/import"
         >
           <Button icon="ios-arrow-dropdown">选择文件</Button>
@@ -60,6 +62,7 @@ export default {
 
     /**
      * 上传文件之前的钩子，参数为上传的文件，若返回 false 或者 Promise 则停止上传
+     * TODO 1  这样子格式校验不起作用了
      */
     handleUpload(file) {
       this.excelFile = file;
@@ -78,11 +81,40 @@ export default {
     },
 
     /**
-     * 导入标准轨迹
+     * 导入标准轨迹   TODO  2  不想写死路径 想从js里面获取路径  3  后台接收不到file参数
      */
     importStandardTrace() {
-      alert("导入标准轨迹TODO");
       this.$refs.uploadRef.post(this.excelFile);
+
+      /* let params = new Object();
+      params.loginUid = getToken();
+      params.file = this.excelFile;
+      importStandardTraceAPI(params).then(res => {
+        if (res.data.code == 1) {
+          this.$Notice.success({
+            desc: res.data.msg
+          });
+          this.reset();
+        } else if (res.data.code == 0) {
+          this.$Notice.error({
+            desc: res.data.msg
+          });
+        }
+      }); */
+    },
+
+    /**
+     * 导入成功
+     */
+    handleUploadSuccess(response, file, fileList) {
+      alert(JSON.stringify(response));
+    },
+
+    /**
+     * 导入失败
+     */
+    handleUploadError(response, file, fileList) {
+      alert(JSON.stringify(response));
     }
   },
 
