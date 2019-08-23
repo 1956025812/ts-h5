@@ -76,6 +76,9 @@
           <Icon type="md-close" size="25" />
         </Button>
       </Tooltip>
+      <Tooltip placement="top" content="导入">
+        <StandardTraceImportPageComponent @parentReset="reset"></StandardTraceImportPageComponent>
+      </Tooltip>
     </div>
     <br />
 
@@ -108,7 +111,7 @@
       ></Page>
     </div>
 
-    <!-- 修改系统详情弹窗子组件 -->
+    <!-- 修改标准轨迹弹窗子组件 -->
     <StandardTraceEditPageComponent
       ref="StandardTraceEditPageComponentRef"
       style="display:none"
@@ -121,6 +124,7 @@
 <script>
 import StandardTraceAddPageComponent from "_p/baseMaterial/standardTrace/standardTraceAddPage.vue";
 import StandardTraceEditPageComponent from "_p/baseMaterial/standardTrace/standardTraceEditPage.vue";
+import StandardTraceImportPageComponent from "_p/baseMaterial/standardTrace/standardTraceImportPage.vue";
 import { setToken, getToken, removeArrayElement } from "@/libs/util.js";
 import {
   selectStandardTracePageAPI,
@@ -130,7 +134,8 @@ import {
 export default {
   components: {
     StandardTraceAddPageComponent,
-    StandardTraceEditPageComponent
+    StandardTraceEditPageComponent,
+    StandardTraceImportPageComponent
   },
   data() {
     return {
