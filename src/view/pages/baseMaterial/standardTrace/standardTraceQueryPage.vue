@@ -422,8 +422,8 @@ export default {
      */
     openStandardTraceDelSingleModal(row) {
       this.$Modal.confirm({
-        title: "删除轨迹节点",
-        content: "确认删除轨迹节点【" + row.nodeNameCn + "】么？",
+        title: "删除标准轨迹",
+        content: "确认删除标准轨迹【" + row.traceNameCn + "】么？",
         onOk: () => {
           let params = new Object();
           params.loginUid = getToken;
@@ -456,12 +456,12 @@ export default {
       }
 
       this.$Modal.confirm({
-        title: "批量删除轨迹节点",
-        content: "确认要批量删除这些轨迹节点么？",
+        title: "批量删除标准轨迹",
+        content: "确认要批量删除这些标准轨迹么？",
         onOk: () => {
           let params = new Object();
           params.loginUid = getToken;
-          params.tnids = this.selectRowStids;
+          params.stids = this.selectRowStids;
           delStandardTraceAPI(params).then(res => {
             if (res.data.code == 1) {
               this.$Notice.success({
