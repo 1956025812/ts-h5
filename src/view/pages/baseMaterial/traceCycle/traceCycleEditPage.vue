@@ -23,7 +23,7 @@
         :label-width="120"
       >
         <FormItem label="环节代码：" prop="cycleCode">
-          <Input v-model="traceCycleEditForm.cycleCode" placeholder="限一个字符，必须为字母或数字"></Input>
+          <Input v-model="traceCycleEditForm.cycleCode" placeholder="限一个字符，必须为字母或数字" disabled></Input>
         </FormItem>
         <FormItem label="环节中文名称：" prop="cycleNameCn">
           <Input v-model="traceCycleEditForm.cycleNameCn" placeholder="限20个字"></Input>

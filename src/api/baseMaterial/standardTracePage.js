@@ -67,7 +67,7 @@ export const editStandardTraceAPI = (params) => {
 /**
  * @description 删除标准轨迹
  */
-export const delstandardTraceAPI = (params) => {
+export const delStandardTraceAPI = (params) => {
     return axios.request({
         url: '/standardtrace/delete',
         method: 'post',

@@ -23,7 +23,7 @@
         :label-width="120"
       >
         <FormItem label="环节代码：" prop="cycleCode">
-          <Select v-model="traceNodeEditForm.cycleCode" placeholder="请选择" clearable>
+          <Select v-model="traceNodeEditForm.cycleCode" placeholder="请选择" clearable disabled>
             <Option
               v-for="eachTraceCycleOption in traceNodeEditForm.traceCycleListOptions"
               :value="eachTraceCycleOption.cycleCode"
@@ -32,7 +32,7 @@
           </Select>
         </FormItem>
         <FormItem label="节点代码：" prop="nodeCode">
-          <Input v-model="traceNodeEditForm.nodeCode" placeholder="限一个字符，必须为字母或数字"></Input>
+          <Input v-model="traceNodeEditForm.nodeCode" placeholder="限一个字符，必须为字母或数字" disabled></Input>
         </FormItem>
         <FormItem label="节点中文名称：" prop="nodeNameCn">
           <Input v-model="traceNodeEditForm.nodeNameCn" placeholder="限20个字"></Input>
