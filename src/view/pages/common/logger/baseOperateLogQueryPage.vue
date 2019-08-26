@@ -73,12 +73,15 @@
 
 <script>
 import { getToken } from "@/libs/util";
+import { selectBaseOperateLogPageAPI } from "@/api/common/logger/baseOperateLogPage.js";
 
 export default {
   name: "BaseOperateLogPageComponent",
   data() {
     return {
       baseOperateLogModal: false,
+      belongTypeHidden: "",
+      thirdRecordIdHidden: "",
       createBy: "",
       remark: "",
       createTimeRange: "",
@@ -95,7 +98,7 @@ export default {
         },
         {
           title: "操作人",
-          key: "craeteBy",
+          key: "createBy",
           width: 160,
           align: "center"
         },
@@ -116,8 +119,16 @@ export default {
   },
 
   methods: {
-    openBaseOperateLogModal(type, thirdRecordId) {
+    openBaseOperateLogModal(belongType, thirdRecordId) {
       this.baseOperateLogModal = true;
+      this.belongTypeHidden = belongType;
+      this.thirdRecordIdHidden = thirdRecordId;
+
+      // 查询
+      this.$options.methods.queryBaseOperateLogPage.bind(this)(
+        this.currentPage,
+        this.pageSize
+      );
     },
 
     /**
@@ -128,12 +139,27 @@ export default {
       params.currentPage = currentPage;
       params.pageSize = pageSize;
       params.loginUid = getToken();
+      params.belongType = this.belongTypeHidden;
+      params.thirdRecordId = this.thirdRecordIdHidden;
       params.createBy = this.createBy;
       params.remark = this.remark;
       if (this.createTimeRange != null && this.createTimeRange != "") {
         params.startTime = this.createTimeRange.toString().split(",")[0];
         params.endTime = this.createTimeRange.toString().split(",")[1];
       }
+
+      selectBaseOperateLogPageAPI(params).then(res => {
+        if (res.data.code == 1) {
+          this.totalCount = res.data.data.totalCount;
+          this.currentPage = res.data.data.currentPage;
+          this.pageSize = res.data.data.pageSize;
+          this.baseOperateLogTableData = res.data.data.items;
+        } else if (res.data.code == 0) {
+          this.$Notice.error({
+            desc: res.data.msg
+          });
+        }
+      });
     },
 
     /**
@@ -164,15 +190,11 @@ export default {
       this.createBy = "";
       this.remark = "";
       this.createTimeRange = "";
+      this.$options.methods.queryBaseOperateLogPage.bind(this)(1, 10);
     }
   },
 
-  created() {
-    this.$options.methods.queryBaseOperateLogPage.bind(this)(
-      this.currentPage,
-      this.pageSize
-    );
-  }
+  created() {}
 };
 </script>
 

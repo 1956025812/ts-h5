@@ -222,7 +222,7 @@ export default {
                   on: {
                     click: () => {
                       this.$refs.BaseOperateLogPageComponentRef.openBaseOperateLogModal(
-                        1, 
+                        1,
                         params.row.id
                       );
                     }
