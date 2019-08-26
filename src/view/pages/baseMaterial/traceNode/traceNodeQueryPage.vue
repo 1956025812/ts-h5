@@ -93,6 +93,9 @@
       style="display:none"
       @parentReset="reset"
     ></TraceNodeEditPageComponent>
+
+    <!-- 操作日志列表弹窗子组件 -->
+    <BaseOperateLogPageComponent ref="BaseOperateLogPageComponentRef" style="display:none"></BaseOperateLogPageComponent>
   </div>
 </template>
   
@@ -100,6 +103,7 @@
 <script>
 import TraceNodeAddPageComponent from "_p/baseMaterial/traceNode/traceNodeAddPage.vue";
 import TraceNodeEditPageComponent from "_p/baseMaterial/traceNode/traceNodeEditPage.vue";
+import BaseOperateLogPageComponent from "_p/common/logger/baseOperateLogQueryPage.vue";
 import { setToken, getToken, removeArrayElement } from "@/libs/util.js";
 import {
   selectTraceNodePageAPI,
@@ -109,7 +113,8 @@ import {
 export default {
   components: {
     TraceNodeAddPageComponent,
-    TraceNodeEditPageComponent
+    TraceNodeEditPageComponent,
+    BaseOperateLogPageComponent
   },
   data() {
     return {
@@ -227,7 +232,10 @@ export default {
                   },
                   on: {
                     click: () => {
-                      alert("查看日志");
+                      this.$refs.BaseOperateLogPageComponentRef.openBaseOperateLogModal(
+                        2,
+                        params.row.id
+                      );
                     }
                   }
                 },
