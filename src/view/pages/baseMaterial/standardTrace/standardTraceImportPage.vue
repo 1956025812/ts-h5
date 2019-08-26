@@ -25,7 +25,7 @@
           :before-upload="handleUpload"
           :on-success="handleUploadSuccess"
           :on-error="handleUploadError"
-          action="http://localhost:8001/standardtrace/import"
+          :action="uploadStandardTraceUrl"
         >
           <Button icon="ios-arrow-dropdown">选择文件</Button>
         </Upload>
@@ -38,6 +38,10 @@
 
 
 <script>
+// 引用src/config/index.js里面的配置属性，注意：使用的时候不能加this,直接用自定义名称baseConfig.xxx
+// 另外：还可以在v-if等类似的标签中使用$config.xxx来获取配置项
+import baseConfig from "@/config/index.js";
+
 import { getToken } from "@/libs/util.js";
 import { importStandardTraceAPI } from "@/api/baseMaterial/standardTracePage.js";
 
@@ -47,7 +51,8 @@ export default {
     return {
       standardTraceImportModal: false,
       excelFile: null,
-      excelFileTypes: ["xls", "xlsx"]
+      excelFileTypes: ["xls", "xlsx"],
+      uploadStandardTraceUrl: baseConfig.baseUrl.dev + "/standardtrace/import"
     };
   },
 
@@ -86,6 +91,14 @@ export default {
      * 导入标准轨迹   TODO  2  不想写死路径 想从js里面获取路径  3  后台接收不到file参数
      */
     importStandardTrace() {
+      if (this.excelFile == null) {
+        this.$Notice.warning({
+          title: "EXCEL文件不能为空",
+          desc: "EXCEL文件不能为空,请重新上传！"
+        });
+        return;
+      }
+
       this.$refs.uploadRef.post(this.excelFile);
 
       /* let params = new Object();
