@@ -57,7 +57,9 @@ export default {
      */
     openStandardTraceImportModal() {
       this.standardTraceImportModal = true;
+      // 清空选择的文件和已上传的文件列表
       this.excelFile = null;
+      this.$refs.uploadRef.clearFiles();
     },
 
     /**
