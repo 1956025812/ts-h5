@@ -21,6 +21,7 @@
       <div>
         <Upload
           ref="uploadRef"
+          name="uploadFile"
           :format="excelFileTypes"
           :before-upload="handleUpload"
           :on-success="handleUploadSuccess"
