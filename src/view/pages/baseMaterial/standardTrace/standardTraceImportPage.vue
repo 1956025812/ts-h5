@@ -89,7 +89,7 @@ export default {
     },
 
     /**
-     * 导入标准轨迹   TODO  2  不想写死路径 想从js里面获取路径  3  后台接收不到file参数
+     * 导入标准轨迹
      */
     importStandardTrace() {
       if (this.excelFile == null) {
@@ -101,22 +101,6 @@ export default {
       }
 
       this.$refs.uploadRef.post(this.excelFile);
-
-      /* let params = new Object();
-      params.loginUid = getToken();
-      params.file = this.excelFile;
-      importStandardTraceAPI(params).then(res => {
-        if (res.data.code == 1) {
-          this.$Notice.success({
-            desc: res.data.msg
-          });
-          this.reset();
-        } else if (res.data.code == 0) {
-          this.$Notice.error({
-            desc: res.data.msg
-          });
-        }
-      }); */
     },
 
     /**
