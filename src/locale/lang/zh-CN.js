@@ -15,8 +15,8 @@ export default {
   logisticsProductRuleQueryPage: '物流产品规则配置',
   logisticsChannelRuleQueryPage: '物流渠道规则配置',
   agent2standardTraceMapping: '服务商->标准轨迹映射',
-  agent2standardTraceMappingQueryPage: '服务商->标准轨迹映射',
-  standard2customerTraceMappingQueryPage: '标准轨迹->客户轨迹映射',
+  traceOriginalStandardQueryPage: '服务商->标准轨迹映射',
+  traceStandardOriginalQueryPage: '标准轨迹->客户轨迹映射',
 
 
   traceQuery: '轨迹查询',

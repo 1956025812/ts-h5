@@ -134,18 +134,18 @@ export default [
         component: () => import('_p/baseMaterial/traceCycle/traceCycleQueryPage.vue')
       },
       {
-        name: 'agent2standardTraceMappingQueryPage',
-        path: '/agent2standardTraceMappingQueryPage',
+        name: 'traceOriginalStandardQueryPage',
+        path: '/traceOriginalStandardQueryPage',
         meta: {
           icon: 'md-apps',
           title: '服务商->标准轨迹映射',
           notCache: true
         },
-        component: () => import('_p/baseMaterial/traceCycle/traceCycleQueryPage.vue')
+        component: () => import('_p/ruleConfig/traceOriginalStandard/traceOriginalStandardQueryPage.vue')
       },
       {
-        name: 'standard2customerTraceMappingQueryPage',
-        path: '/standard2customerTraceMappingQueryPage',
+        name: 'traceStandardOriginalQueryPage',
+        path: '/traceStandardOriginalQueryPage',
         meta: {
           icon: 'md-apps',
           title: '标准轨迹->客户轨迹映射',
