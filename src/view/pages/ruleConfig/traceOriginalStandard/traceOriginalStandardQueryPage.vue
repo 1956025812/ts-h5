@@ -93,12 +93,20 @@
         @on-page-size-change="changePageSize"
       ></Page>
     </div>
+
+    <!-- 修改原始轨迹标准轨迹映射弹窗子组件 -->
+    <TraceOriginalStandardEditPageComponent
+      ref="TraceOriginalStandardEditPageComponentRef"
+      style="display:none"
+      @parentReset="reset"
+    ></TraceOriginalStandardEditPageComponent>
   </div>
 </template>
   
 
 <script>
 import TraceOriginalStandardAddPageComponent from "_p/ruleConfig/traceOriginalStandard/traceOriginalStandardAddPage.vue";
+import TraceOriginalStandardEditPageComponent from "_p/ruleConfig/traceOriginalStandard/traceOriginalStandardEditPage.vue";
 import { setToken, getToken, removeArrayElement } from "@/libs/util.js";
 import {
   selectTraceOriginalStandardPageAPI,
@@ -106,7 +114,10 @@ import {
 } from "@/api/ruleConfig/traceOriginalStandardPage.js";
 
 export default {
-  components: { TraceOriginalStandardAddPageComponent },
+  components: {
+    TraceOriginalStandardAddPageComponent,
+    TraceOriginalStandardEditPageComponent
+  },
   data() {
     return {
       // 初始化变量
@@ -195,7 +206,9 @@ export default {
                   on: {
                     click: () => {
                       // 在父组件中通过ref调用子组件的方法
-                      alert("修改TODO");
+                      this.$refs.TraceOriginalStandardEditPageComponentRef.openTraceOriginalStandardEditModal(
+                        params.row.id
+                      );
                     }
                   }
                 },
