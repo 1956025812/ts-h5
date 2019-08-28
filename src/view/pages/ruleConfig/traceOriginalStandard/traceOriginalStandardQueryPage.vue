@@ -50,6 +50,9 @@
 
     <!-- 操作按钮 -->
     <div>
+      <Tooltip placement="top" content="新增">
+        <TraceOriginalStandardAddPageComponent @parentReset="reset"></TraceOriginalStandardAddPageComponent>
+      </Tooltip>
       <Tooltip placement="top" content="删除">
         <Button
           class="export-btn"
@@ -95,6 +98,7 @@
   
 
 <script>
+import TraceOriginalStandardAddPageComponent from "_p/ruleConfig/traceOriginalStandard/traceOriginalStandardAddPage.vue";
 import { setToken, getToken, removeArrayElement } from "@/libs/util.js";
 import {
   selectTraceOriginalStandardPageAPI,
@@ -102,7 +106,7 @@ import {
 } from "@/api/ruleConfig/traceOriginalStandardPage.js";
 
 export default {
-  components: {},
+  components: { TraceOriginalStandardAddPageComponent },
   data() {
     return {
       // 初始化变量
