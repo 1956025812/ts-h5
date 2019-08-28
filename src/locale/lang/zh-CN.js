@@ -24,10 +24,10 @@ export default {
   codeTraceQueryPage: '单号轨迹列表',
 
 
-  operateAndMonitor: '运营与监控',
+  operateMonitor: '运营与监控',
   manualAddTraceQueryPage: '手工补录轨迹',
   exceptionTraceQueryPage: '异常轨迹列表',
-  wait2standardTraceQueryPage: '待标准化轨迹列表',
+  waitStandardTraceQueryPage: '待标准化轨迹列表',
 
   // 轨迹平台 end
 

@@ -193,8 +193,8 @@ export default [
 
 
   {
-    name: 'operateAndMonitor',
-    path: '/operateAndMonitor',
+    name: 'operateMonitor',
+    path: '/operateMonitor',
     meta: {
       icon: 'logo-buffer',
       title: '运营与监控',
@@ -224,14 +224,14 @@ export default [
         component: () => import('_p/baseMaterial/traceCycle/traceCycleQueryPage.vue')
       },
       {
-        name: 'wait2standardTraceQueryPage',
-        path: '/wait2standardTraceQueryPage',
+        name: 'waitStandardTraceQueryPage',
+        path: '/waitStandardTraceQueryPage',
         meta: {
           icon: 'md-apps',
           title: '待标准化轨迹列表',
           notCache: true
         },
-        component: () => import('_p/baseMaterial/traceCycle/traceCycleQueryPage.vue')
+        component: () => import('_p/operateMonitor/waitStandardTrace/waitStandardTraceQueryPage.vue')
       }
     ]
   },
