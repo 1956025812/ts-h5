@@ -43,7 +43,7 @@
         <Button
           class="export-btn"
           style="border: none; appearance:none; margin-bottom: 5px;"
-          @click="handleWaitStandardTrace()"
+          @click="openHandleWaitStandardTraceBatchModal()"
         >
           <Icon type="ios-construct" size="25" />
         </Button>
@@ -88,15 +88,11 @@
         @on-page-size-change="changePageSize"
       ></Page>
     </div>
-
-    <!-- 操作日志列表弹窗子组件 -->
-    <BaseOperateLogPageComponent ref="BaseOperateLogPageComponentRef" style="display:none"></BaseOperateLogPageComponent>
   </div>
 </template>
   
 
 <script>
-import BaseOperateLogPageComponent from "_p/common/logger/baseOperateLogQueryPage.vue";
 import { setToken, getToken, removeArrayElement } from "@/libs/util.js";
 import {
   selectWaitStandardTracePageAPI,
@@ -104,9 +100,7 @@ import {
 } from "@/api/operateMonitor/waitStandardTracePage.js";
 
 export default {
-  components: {
-    BaseOperateLogPageComponent
-  },
+  components: {},
   data() {
     return {
       // 初始化变量
@@ -246,12 +240,12 @@ export default {
                     type: "primary",
                     size: "small"
                   },
+                  style: {
+                    marginRight: "5px"
+                  },
                   on: {
                     click: () => {
-                      this.$refs.BaseOperateLogPageComponentRef.openBaseOperateLogModal(
-                        1,
-                        params.row.id
-                      );
+                      alert("查看业务日志TODO");
                     }
                   }
                 },
@@ -386,7 +380,7 @@ export default {
     openWaitStandardTraceSingleModal(row) {
       this.$Modal.confirm({
         title: "删除待标准化轨迹",
-        content: "确认删除待标准化轨迹【TODO】么？",
+        content: "确认删除待标准化轨迹【TODO提示内容待定】么？",
         onOk: () => {
           let params = new Object();
           params.loginUid = getToken;
@@ -403,6 +397,27 @@ export default {
               });
             }
           });
+        }
+      });
+    },
+
+    /**
+     * 批量处理
+     */
+    openHandleWaitStandardTraceBatchModal() {
+      if (this.selectRowWstids.length == 0) {
+        this.$Notice.warning({
+          title: "请选中要处理的记录后再进行处理操作"
+        });
+        return;
+      }
+
+      this.$Modal.confirm({
+        title: "批量处理待标准化轨迹",
+        content: "确认要批量处理这些待标准化轨迹么？",
+        onOk: () => {
+          alert("批量处理待标准化轨迹TODO");
+          this.reset();
         }
       });
     },
