@@ -16,12 +16,12 @@
         </div>
         <br />
         <div style="width:100%">
-          <Button type="primary" size="large" style="width:130px; margin-left: 10px">清空</Button>
           <Button type="primary" size="large" style="width:130px; margin-left: 10px">查询</Button>
+          <Button type="primary" size="large" style="width:130px; margin-left: 10px">清空</Button>
         </div>
       </div>
       <div slot="right" class="demo-split-pane">
-        <div>分类TODO</div>
+        <div>状态分类TODO</div>
         <Divider />
         <div>查询列表</div>
       </div>

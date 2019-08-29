@@ -48,7 +48,8 @@ export default [
           notCache: true,
           icon: 'md-home'
         },
-        component: () => import('@/view/single-page/home')
+        // component: () => import('@/view/single-page/home')
+        component: () => import('_p/traceQuery/traceQueryInner/traceQueryInnerQueryPage.vue')
       }
     ]
   },
@@ -119,6 +120,7 @@ export default [
         meta: {
           icon: 'md-apps',
           title: '物流产品规则配置',
+          hideInMenu: true,
           notCache: true
         },
         component: () => import('_p/baseMaterial/traceCycle/traceCycleQueryPage.vue')
@@ -129,6 +131,7 @@ export default [
         meta: {
           icon: 'md-apps',
           title: '物流渠道规则配置',
+          hideInMenu: true,
           notCache: true
         },
         component: () => import('_p/baseMaterial/traceCycle/traceCycleQueryPage.vue')
@@ -149,6 +152,7 @@ export default [
         meta: {
           icon: 'md-apps',
           title: '标准轨迹->客户轨迹映射',
+          hideInMenu: true,
           notCache: true
         },
         component: () => import('_p/baseMaterial/traceCycle/traceCycleQueryPage.vue')
@@ -184,6 +188,7 @@ export default [
         meta: {
           icon: 'md-apps',
           title: '单号轨迹列表',
+          hideInMenu: true,
           notCache: true
         },
         component: () => import('_p/baseMaterial/traceCycle/traceCycleQueryPage.vue')
@@ -209,6 +214,7 @@ export default [
         meta: {
           icon: 'md-apps',
           title: '手工补录轨迹',
+          hideInMenu: true,
           notCache: true
         },
         component: () => import('_p/baseMaterial/traceCycle/traceCycleQueryPage.vue')
@@ -219,6 +225,7 @@ export default [
         meta: {
           icon: 'md-apps',
           title: '异常轨迹列表',
+          hideInMenu: true,
           notCache: true
         },
         component: () => import('_p/baseMaterial/traceCycle/traceCycleQueryPage.vue')
