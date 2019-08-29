@@ -2,7 +2,11 @@
   <div class="demo-split">
     <Split v-model="leftRightSplit" mode="horizontal" min="325px">
       <div slot="left" class="demo-split-pane">Left Pane</div>
-      <div slot="right" class="demo-split-pane">right pane</div>
+      <div slot="right" class="demo-split-pane">
+        <!-- <div>分类TODO</div> -->
+        <!-- <Divider /> -->
+        <div>查询列表</div>
+      </div>
     </Split>
   </div>
 </template>
