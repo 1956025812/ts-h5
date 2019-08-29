@@ -29,6 +29,10 @@ export default {
   exceptionTraceQueryPage: '异常轨迹列表',
   waitStandardTraceQueryPage: '待标准化轨迹列表',
 
+
+  systemConfig: '系统配置',
+  systemUserQueryPage: '用户列表',
+
   // 轨迹平台 end
 
 

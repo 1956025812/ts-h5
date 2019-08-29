@@ -244,6 +244,29 @@ export default [
   },
 
 
+  {
+    name: 'systemConfig',
+    path: '/systemConfig',
+    meta: {
+      icon: 'logo-buffer',
+      title: '系统配置',
+      showAlways: true,
+      notCache: true
+    },
+    component: Main,
+    children: [
+      {
+        name: 'systemUserQueryPage',
+        path: '/systemUserQueryPage',
+        meta: {
+          icon: 'md-apps',
+          title: '用户列表',
+          notCache: true
+        },
+        component: () => import('_p/systemConfig/systemUser/systemUserQueryPage.vue')
+      }
+    ]
+  },
 
   // 轨迹平台页面路由   start
 
