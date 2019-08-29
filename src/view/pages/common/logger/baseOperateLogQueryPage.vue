@@ -121,6 +121,13 @@ export default {
   methods: {
     openBaseOperateLogModal(belongType, thirdRecordId) {
       this.baseOperateLogModal = true;
+
+      // 清空查询条件
+      this.createBy = null;
+      this.remark = null;
+      this.createTimeRange = null;
+
+      // 设置隐藏条件
       this.belongTypeHidden = belongType;
       this.thirdRecordIdHidden = thirdRecordId;
 
