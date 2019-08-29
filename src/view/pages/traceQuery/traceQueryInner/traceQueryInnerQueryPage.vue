@@ -21,8 +21,18 @@
         </div>
       </div>
       <div slot="right" class="demo-split-pane">
-        <div>状态分类TODO</div>
-        <Divider />
+        <div>
+          <Tabs ref="stateChangeTabRef" value="name1" @on-click="changeTabStatus">
+            <TabPane label="所有（0）" name="name1" />
+            <TabPane label="查询不到（0）" name="name2" />
+            <TabPane label="运输途中（0）" name="name3" />
+            <TabPane label="投递失败（0）" name="name4" />
+            <TabPane label="成功签收（0）" name="name5" />
+            <TabPane label="可能异常（0）" name="name6" />
+            <TabPane label="运输过久（0）" name="name7" />
+          </Tabs>
+        </div>
+        <br />
         <div>查询列表</div>
       </div>
     </Split>
@@ -40,7 +50,14 @@ export default {
     };
   },
 
-  methods: {},
+  methods: {
+    /**
+     * 状态页签切换函数
+     */
+    changeTabStatus(name) {
+      alert(name);
+    }
+  },
 
   /**
    * 初始化页面 页面加载的时候执行
