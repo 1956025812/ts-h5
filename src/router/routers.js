@@ -169,14 +169,14 @@ export default [
     component: Main,
     children: [
       {
-        name: 'innerTraceQueryPage',
-        path: '/innerTraceQueryPage',
+        name: 'traceQueryInnerQueryPage',
+        path: '/traceQueryInnerQueryPage',
         meta: {
           icon: 'md-apps',
           title: '轨迹查询（内部）',
           notCache: true
         },
-        component: () => import('_p/baseMaterial/traceCycle/traceCycleQueryPage.vue')
+        component: () => import('_p/traceQuery/traceQueryInner/traceQueryInnerQueryPage.vue')
       },
       {
         name: 'codeTraceQueryPage',

@@ -20,7 +20,7 @@ export default {
 
 
   traceQuery: '轨迹查询',
-  innerTraceQueryPage: '轨迹查询（内部）',
+  traceQueryInnerQueryPage: '轨迹查询（内部）',
   codeTraceQueryPage: '单号轨迹列表',
 
 
